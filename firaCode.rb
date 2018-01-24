@@ -5,7 +5,10 @@ end
 # I do not understand how this works, need to test on new machine?
 dep 'FiraCode-font' do
   met? shell 'system_profiler SPFontsDataType | grep FiraCode'
-  # source 'https://github.com/tonsky/FiraCode.git'
+  meet {
+    shell 'git clone ~/Downloads/firacode'
+    shell 'cp ~/Downloads/firacode/dist/ttf/*.ttf /Library/Fonts/'
+   }
 end
 
 dep 'atom preferences' do
