@@ -3,6 +3,7 @@ dep 'base' do
     %w(
       Postman.app
       Spectacle.app
+      LastPass.app
       FiraCode
       atom
     )
