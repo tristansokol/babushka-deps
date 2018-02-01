@@ -19,7 +19,6 @@ end
 dep 'terminal preferences' do
   met? shell 'defaults read com.apple.Terminal'
   meet do
-    log 'changing font to Didot'
-    shell "osascript -e 'tell application" + ' "Terminal" to set the font name of window 1' + " to \"Fira Code Retina\"'"
+    log_shell 'changing Terminal font to Fira Code', "osascript -e 'tell application" + ' "Terminal" to set the font name of window 1' + " to \"Fira Code Retina\"'"
   end
 end

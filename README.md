@@ -26,6 +26,8 @@ but that works on some file types and not others.
 
 
 TODO:
-add all sort of cool plist edits like `defaults write com.blah blah`
+add all sort of cool mac preference edits like `defaults write com.blah blah`
+check for ssh key
+check for bash profile
 
 https://babushka.me/dep-sources
