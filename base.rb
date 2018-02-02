@@ -7,6 +7,7 @@ dep 'base' do
       FiraCode
       atom
       dotfiles
+      config-files
     )
   )
 end
