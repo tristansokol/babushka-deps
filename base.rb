@@ -6,6 +6,7 @@ dep 'base' do
       LastPass.app
       FiraCode
       atom
+      config-files
     )
   )
 end
