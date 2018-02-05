@@ -8,6 +8,7 @@ dep 'base' do
       config-files
       npm
       git
+      ssh
     )
   )
 end
