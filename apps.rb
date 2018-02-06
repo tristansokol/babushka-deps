@@ -2,7 +2,8 @@ dep 'apps' do
   requires 'Postman.app',
         'Spectacle.app',
         'LastPass.app',
-        'Hex Fiend.app'
+        'Hex Fiend.app',
+        'Disk Inventory X.app'
 end
 
 dep 'Postman.app' do
@@ -19,4 +20,8 @@ end
 
 dep 'Hex Fiend.app'do
   source 'http://ridiculousfish.com/hexfiend/files/Hex_Fiend_2.5.dmg'
+end
+
+dep 'Disk Inventory X.app' do
+  source 'http://www.derlien.com/download.php?file=DiskInventoryX'
 end
