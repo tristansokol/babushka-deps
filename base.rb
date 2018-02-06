@@ -9,6 +9,7 @@ dep 'base' do
       apps
       FiraCode
       atom
+      quicklook
     )
   )
 end
