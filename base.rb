@@ -6,6 +6,9 @@ dep 'base' do
       atom
       dotfiles
       config-files
+      npm
+      git
+      ssh
     )
   )
 end
