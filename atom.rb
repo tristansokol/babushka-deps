@@ -23,7 +23,8 @@ dep 'atom' do
            'atom-material-syntax.atompackage',
            'highlight-selected.atompackage',
            'minimap-highlight-selected.atompackage',
-           'minimap-pigments.atompackage'
+           'minimap-pigments.atompackage',
+           'symbols-view.atompackage'
 end
 
 meta :atompackage do
@@ -32,7 +33,8 @@ meta :atompackage do
   template do
     requires 'apm'
     met? do
-      log_shell "seeing if the atom package #{name} is intalled", "apm list | grep #{name}"
+      # change from `apm view` to ls for ludicris speed increase!
+      log_shell "seeing if the atom package #{name} is intalled", "ls ~/.atom/packages | grep #{name}"
     end
     meet do
       log_shell "installing #{name} and dependencies", "apm install #{name}"
@@ -142,4 +144,7 @@ dep 'minimap.atompackage' do
 end
 dep 'pigments.atompackage' do
   name 'pigments'
+end
+dep 'symbols-view.atompackage' do
+  name 'symbols-view'
 end

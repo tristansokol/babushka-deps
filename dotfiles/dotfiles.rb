@@ -3,15 +3,10 @@ dep 'dotfiles' do
   'bash-completion',
   'inputrc',
   'gitconfig',
-<<<<<<< HEAD
   'git-completion',
-  'git-prompt'
-||||||| merged common ancestors
-  'git-completion'
-=======
+  'git-prompt',
   'git-completion',
   'alias'
->>>>>>> add better dotfile installation?
 end
 
 dep 'dotfiles-repo' do
