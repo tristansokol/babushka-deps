@@ -3,7 +3,8 @@ dep 'dotfiles' do
   'bash-completion',
   'inputrc',
   'gitconfig',
-  'git-completion'
+  'git-completion',
+  'git-prompt'
 end
 
 dep 'dotfiles-repo' do
@@ -26,27 +27,34 @@ dep 'dotfiles-up-to-date' do
   }
 end
 
-dep 'symlink-bash_completion.d' do
+dep 'make bash_completion.d' do
   requires 'dotfiles-up-to-date'
   met?{
     '~/.bash_completion.d'.p.exists?
   }
   meet{
-    log_shell "symlinking the .bash_completion.d directory","ln -s ~/dotfiles/bash_completion.d ~/bash_completion"
+    log_shell "making the bash_completion.d directory","mkdir ~/.bash_completion.d"
   }
 end
 
-# Add the git completion to the the local folder, but this might not work
 dep 'git-completion' do
-  requires 'symlink-bash_completion.d'
+  requires 'make bash_completion.d'
   met?{
     '~/.bash_completion.d/git-completion.bash'.p.exists?
   }
   meet{
-    log_shell "Downloading git-completion from the source","curl -o ~/dotfiles/bash-completion.d/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
+    log_shell "Downloading git-completion from the source","curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.bash_completion.d/git-completion.bash"
   }
 end
-
+dep 'git-prompt' do
+  requires 'make bash_completion.d'
+  met?{
+    '~/.bash_completion.d/git-prompt.sh'.p.exists?
+  }
+  meet{
+    log_shell "Downloading git-prompt from the source","curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.bash_completion.d/git-prompt.sh"
+  }
+end
 
 dep 'gitconfig' do
   log("FIGURE OUT HOW TO INSTALL GITCONFIG")

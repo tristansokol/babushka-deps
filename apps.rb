@@ -1,16 +1,10 @@
 dep 'apps' do
   requires 'Postman.app',
-<<<<<<< HEAD
-    'Spectacle.app,'
-    'LastPass.app'
-end
-=======
         'Spectacle.app',
         'LastPass.app',
         'Hex Fiend.app'
 end
 
->>>>>>> 2837338334941f05497e24bdb2ecf96e9bc5ec17
 dep 'Postman.app' do
   source 'https://dl.pstmn.io/download/latest/osx'
 end

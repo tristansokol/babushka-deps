@@ -33,9 +33,6 @@ end
 dep 'bashrc-exists' do
   met? {File.exist?("#{ENV['HOME']}/.bashrc") }
   meet do
-    message = <<-MESSAGE.gsub(/[\n\s]+/, ' ')
-    Your home directory is missing a .bashrc. You should install one.
-    MESSAGE
-    log_shell(message, 'echo') # echo serves no purpose here - just a dummy command
+  log_shell "Creating a .bashrc for you, but it probably isn't a good one", "echo 'source  ~/dotfiles/shell/bashrc' > ~/.bashrc"
   end
 end
