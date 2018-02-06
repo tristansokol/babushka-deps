@@ -1,3 +1,8 @@
+dep 'apps' do
+  requires 'Postman.app',
+    'Spectacle.app,'
+    'LastPass.app'
+end
 dep 'Postman.app' do
   source 'https://dl.pstmn.io/download/latest/osx'
 end

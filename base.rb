@@ -1,9 +1,7 @@
 dep 'base' do
   requires(
     %w(
-      Postman.app
-      Spectacle.app
-      LastPass.app
+      apps
       FiraCode
       atom
       dotfiles
