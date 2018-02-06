@@ -59,3 +59,10 @@ end
 dep 'gitconfig' do
   log("FIGURE OUT HOW TO INSTALL GITCONFIG")
 end
+
+dep 'qlstephen' do
+  met?{log_shell "seeing if qlstephen, a quicklook extension is installed","ls ~/Library/QuickLook/ | grep qlstephen"}
+  meet{
+    log_shell "installing with brew", "brew cask install qlstephen"
+  }
+end
