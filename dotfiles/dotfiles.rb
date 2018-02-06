@@ -72,10 +72,3 @@ end
 dep 'alias' do
   # this probably doesn't have to do anything.
 end
-
-dep 'qlstephen' do
-  met?{log_shell "seeing if qlstephen, a quicklook extension is installed","ls ~/Library/QuickLook/ | grep qlstephen"}
-  meet{
-    log_shell "installing with brew", "brew cask install qlstephen"
-  }
-end
