@@ -3,8 +3,15 @@ dep 'dotfiles' do
   'bash-completion',
   'inputrc',
   'gitconfig',
+<<<<<<< HEAD
   'git-completion',
   'git-prompt'
+||||||| merged common ancestors
+  'git-completion'
+=======
+  'git-completion',
+  'alias'
+>>>>>>> add better dotfile installation?
 end
 
 dep 'dotfiles-repo' do
@@ -57,7 +64,13 @@ dep 'git-prompt' do
 end
 
 dep 'gitconfig' do
+
   log("FIGURE OUT HOW TO INSTALL GITCONFIG")
+  met?{false}
+end
+
+dep 'alias' do
+  # this probably doesn't have to do anything.
 end
 
 dep 'qlstephen' do
