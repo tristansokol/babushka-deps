@@ -1,7 +1,8 @@
 dep 'gitdotfiles' do
   requires 'git-completion',
            'git-prompt',
-           'gitconfig'
+           'gitconfig',
+           'gitignore'
 end
 
 dep 'git-completion' do
@@ -25,10 +26,14 @@ end
 
 dep 'gitconfig' do
   met?{
-    log "seeing if ~./gitconfig is symbolically linked"
+    log "seeing if ~/.gitconfig is symbolically linked"
     !raw_shell("find ~/.gitconfig -type l").stdout.empty?
   }
   meet{
+     # apparently you can't use relative path for hidden files?
+    if File.file?('/Users/tristansokol/.gitconfig')
+      shell('mv ~/.gitconfig "/Users/tristansokol/.gitconfig$(date +"%m-%d-%y-%r")"')
+    end
     log_shell "Symbolically linking gitconfig from dotfiles","ln -is ~/dotfiles/git/gitconfig ~/.gitconfig"
   }
 end
@@ -39,6 +44,9 @@ dep 'gitignore' do
     !raw_shell("find ~/.gitignore -type l").stdout.empty?
   }
   meet{
+    if File.file?('/Users/tristansokol/.gitignore')
+      shell('mv ~/.gitignore "/Users/tristansokol/.gitignore$(date +"%m-%d-%y-%r")"')
+    end
     log_shell "Symbolically linking gitignore from dotfiles","ln -is ~/dotfiles/git/gitignore ~/.gitignore"
   }
 end

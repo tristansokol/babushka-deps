@@ -15,7 +15,7 @@ dep "hotcorners" do
 end
 
 dep 'dev-folder'do
-  met{'~/Development'.exists?}
+  met?{'~/Development'.p.exists?}
   meet{
     log_shell "making you a development folder",'mkdir ~/Development'
   }

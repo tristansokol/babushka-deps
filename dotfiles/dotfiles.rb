@@ -1,6 +1,6 @@
 dep 'dotfiles' do
   requires 'dotfiles-atom',
-           'bash-completion',
+           'make bash_completion.d',
            'inputrc',
            'gitdotfiles',
            'alias'
@@ -28,9 +28,7 @@ end
 
 dep 'make bash_completion.d' do
   requires 'dotfiles-up-to-date'
-  met? do
-    '~/.bash_completion.d'.p.exists?
-  end
+  met? { '~/.bash_completion.d'.p.exists? }
   meet do
     log_shell 'making the bash_completion.d directory', 'mkdir ~/.bash_completion.d'
   end
