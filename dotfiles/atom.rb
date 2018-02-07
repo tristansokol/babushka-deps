@@ -1,7 +1,7 @@
 dep 'dotfiles-atom' do
     requires 'dotfiles-up-to-date'
   met?{
-    log "seeing if ~./atom is symbolically linked"
+    log "seeing if ~/.atom is symbolically linked"
     !raw_shell("find ~/.atom -type l").stdout.empty?
   }
   meet{

@@ -1,0 +1,44 @@
+dep 'gitdotfiles' do
+  requires 'git-completion',
+           'git-prompt',
+           'gitconfig'
+end
+
+dep 'git-completion' do
+  requires 'make bash_completion.d'
+  met? do
+    '~/.bash_completion.d/git-completion.bash'.p.exists?
+  end
+  meet do
+    log_shell 'Downloading git-completion from the source', 'curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.bash_completion.d/git-completion.bash'
+  end
+end
+dep 'git-prompt' do
+  requires 'make bash_completion.d'
+  met? do
+    '~/.bash_completion.d/git-prompt.sh'.p.exists?
+  end
+  meet do
+    log_shell 'Downloading git-prompt from the source', 'curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.bash_completion.d/git-prompt.sh'
+  end
+end
+
+dep 'gitconfig' do
+  met?{
+    log "seeing if ~./gitconfig is symbolically linked"
+    !raw_shell("find ~/.gitconfig -type l").stdout.empty?
+  }
+  meet{
+    log_shell "Symbolically linking gitconfig from dotfiles","ln -is ~/dotfiles/git/gitconfig ~/.gitconfig"
+  }
+end
+
+dep 'gitignore' do
+  met?{
+    log "seeing if ~./gitignore is symbolically linked"
+    !raw_shell("find ~/.gitignore -type l").stdout.empty?
+  }
+  meet{
+    log_shell "Symbolically linking gitignore from dotfiles","ln -is ~/dotfiles/git/gitignore ~/.gitignore"
+  }
+end

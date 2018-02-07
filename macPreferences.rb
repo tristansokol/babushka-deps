@@ -1,5 +1,5 @@
 dep "mac-preferences" do
-  requires "hotcorners"
+  requires "dev-folder"
 end
 dep "hotcorners" do
   #make the top left hotcorner make the computer go to sleep.
@@ -11,5 +11,12 @@ dep "hotcorners" do
     shell "sudo defaults write com.apple.dock.plist wvous-tl-modifier -int 0"
     shell "sudo killall -hup cfprefsd"
     shell "sudo killall -hup Dock"
+  }
+end
+
+dep 'dev-folder'do
+  met{'~/Development'.exists?}
+  meet{
+    log_shell "making you a development folder",'mkdir ~/Development'
   }
 end

@@ -10,6 +10,7 @@ dep 'base' do
       FiraCode
       atom
       quicklook
+      mac-preferences
     )
   )
 end
