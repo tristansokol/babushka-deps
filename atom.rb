@@ -24,7 +24,8 @@ dep 'atom' do
            'highlight-selected.atompackage',
            'minimap-highlight-selected.atompackage',
            'minimap-pigments.atompackage',
-           'symbols-view.atompackage'
+           'symbols-view.atompackage',
+           'autocomplete-snippets.atompackage'
 end
 
 meta :atompackage do
@@ -147,4 +148,7 @@ dep 'pigments.atompackage' do
 end
 dep 'symbols-view.atompackage' do
   name 'symbols-view'
+end
+dep 'autocomplete-snippets.atompackage' do
+  name 'autocomplete-snippets'
 end
