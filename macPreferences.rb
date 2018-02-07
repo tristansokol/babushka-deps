@@ -20,3 +20,7 @@ dep 'dev-folder'do
     log_shell "making you a development folder",'mkdir ~/Development'
   }
 end
+
+dep 'exuberant ctags'do
+  met?{}
+end
