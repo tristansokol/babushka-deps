@@ -126,7 +126,18 @@ end
 dep 'linter-ui-default.atompackage' do
   name 'linter-ui-default'
 end
+dep "pip"do
+  met?{shell?"which pip"}
+  meet{log("you don't have pip, try reinstalling python with brew")}
+end
+dep "beautysh" do
+  met?{shell?"which beautysh"}
+  meet{
+    log_shell "installing beautysh with pip","pip install beautysh"
+  }
+end
 dep 'linter.atompackage' do
+  requires "beautysh"
   name 'linter'
 end
 dep 'minimap-cursorline.atompackage' do
