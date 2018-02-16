@@ -8,7 +8,7 @@ dep 'atom' do
            'busy-signal.atompackage',
            'color-picker.atompackage',
            'highlight-line.atompackage',
-           'atom-package-teletype',
+           'teletype.atompackage',
            'atom-beautify.atompackage',
            'atom-live-server.atompackage',
            'linter-csslint.atompackage',
@@ -27,7 +27,8 @@ dep 'atom' do
            'symbols-view.atompackage',
            'autocomplete-snippets.atompackage',
            'copy-path.atompackage',
-           'linter-eslint.atompackage'
+           'linter-eslint.atompackage',
+           'docblockr.atompackage'
 end
 
 meta :atompackage do
@@ -62,15 +63,15 @@ dep 'apm' do
   met? { which 'apm' }
 end
 # keeping this pre-template one to remember more about how to do it.
-dep 'atom-package-teletype' do
-  requires 'apm'
-  met? do
-    log_shell 'seeing if the atom package teletype is intalled', 'apm list | grep teletype'
-  end
-  meet do
-    log_shell 'installing teletype', 'apm install teletype'
-  end
-end
+# dep 'atom-package-teletype' do
+#   requires 'apm'
+#   met? do
+#     log_shell 'seeing if the atom package teletype is intalled', 'apm list | grep teletype'
+#   end
+#   meet do
+#     log_shell 'installing teletype', 'apm install teletype'
+#   end
+# end
 
 dep 'rubocop' do
   met? do
@@ -87,6 +88,9 @@ dep 'atom-beautify.atompackage' do
 end
 dep 'atom-live-server.atompackage' do
   name 'atom-live-server'
+end
+dep 'teletype.atompackage' do
+  name 'teletype'
 end
 dep 'atom-material-syntax.atompackage' do
   name 'atom-material-syntax'
@@ -170,4 +174,7 @@ dep 'copy-path.atompackage' do
 end
 dep 'linter-eslint.atompackage' do
   name 'linter-eslint'
+end
+dep 'docblockr.atompackage' do
+  name 'docblockr'
 end
