@@ -26,7 +26,8 @@ dep 'atom' do
            'minimap-pigments.atompackage',
            'symbols-view.atompackage',
            'autocomplete-snippets.atompackage',
-           'copy-path.atompackage'
+           'copy-path.atompackage',
+           'linter-eslint.atompackage'
 end
 
 meta :atompackage do
@@ -166,4 +167,7 @@ dep 'autocomplete-snippets.atompackage' do
 end
 dep 'copy-path.atompackage' do
   name 'copy-path'
+end
+dep 'linter-eslint.atompackage' do
+  name 'linter-eslint'
 end
