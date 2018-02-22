@@ -19,7 +19,8 @@ end
 dep 'dotfiles-up-to-date' do
   requires 'dotfiles-repo'
   met? do
-    shell 'cd ~/dotfiles && git remote update && git status | grep "Your branch is up to date with"'
+    # might be improved with git fetch --dry-run
+    shell 'cd ~/dotfiles && git remote update && git status | grep "Your branch is up-to-date with"'
   end
   meet do
     log_shell 'copying outdated dotfiles to ~/dotfiles_old/ and updating dotfiles repo', 'cp -rf ~/dotfiles/ ~/dotfiles_old/ && cd ~/dotfiles && git fetch --all && git reset --hard origin/master'
