@@ -169,7 +169,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
   defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
   # Set the icon size of Dock items to 36 pixels
-  defaults write com.apple.dock tilesize -int 36
+  defaults write com.apple.dock tilesize -int 72
 
   # Change minimize/maximize window effect
   defaults write com.apple.dock mineffect -string "scale"
@@ -324,7 +324,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
   defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
   # Visualize CPU usage in the Activity Monitor Dock icon
-  defaults write com.apple.ActivityMonitor IconType -int 5
+  defaults write com.apple.ActivityMonitor IconType -int 6
 
   # Show all processes in Activity Monitor
   defaults write com.apple.ActivityMonitor ShowCategory -int 0
