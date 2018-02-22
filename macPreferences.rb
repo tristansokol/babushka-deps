@@ -4,7 +4,8 @@ dep 'mac-preferences' do
            'duti',
            'menuExtras',
            'savePanel',
-           'printPanel'
+           'printPanel',
+           'dl-script'
 end
 # FWIW, this `defaults find` is good at finding some set preferences.
 # e.g.    defaults find com.apple.ActivityMonitor
@@ -16,7 +17,7 @@ dep "dl-script" do
  met?{"~/.babushka/deps/macPreferences.sh".p.exists?}
  meet{
    shell("curl -o ~/.babushka/deps/macPreferences.sh https://raw.githubusercontent.com/tristansokol/babushka-deps/master/macPreferences.sh")
-   `~/.babushka/deps/macPreferences.sh`
+   `chmod +x ~/.babushka/deps/macPreferences.sh && ~/.babushka/deps/macPreferences.sh`
  }
 end
 
