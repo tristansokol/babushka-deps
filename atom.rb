@@ -28,7 +28,10 @@ dep 'atom' do
            'autocomplete-snippets.atompackage',
            'copy-path.atompackage',
            'linter-eslint.atompackage',
-           'docblockr.atompackage'
+           'docblockr.atompackage',
+           'file-icons.atompackage',
+           'tree-view-git-status.atompackage',
+           'project-view.atompackage'
 end
 
 meta :atompackage do
@@ -177,4 +180,13 @@ dep 'linter-eslint.atompackage' do
 end
 dep 'docblockr.atompackage' do
   name 'docblockr'
+end
+dep 'file-icons.atompackage' do
+  name 'file-icons'
+end
+dep 'tree-view-git-status.atompackage' do
+  name 'tree-view-git-status'
+end
+dep 'project-view.atompackage' do
+  name 'project-view'
 end
