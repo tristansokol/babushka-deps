@@ -5,13 +5,21 @@ dep 'mac-preferences' do
            'menuExtras',
            'savePanel',
            'printPanel',
-           'dl-script'
+           'dl-script',
+           'dvorak'
 end
 # FWIW, this `defaults find` is good at finding some set preferences.
 # e.g.    defaults find com.apple.ActivityMonitor
 # Sourced in part from .dotfiles of Paul Irish https://github.com/paulirish/dotfiles
 #
 #
+
+dep 'dvorak' do
+  met?{shel "defaults read com.apple.HIToolbox AppleEnabledInputSources | grep DVORAK"}
+  meet{
+    log_shell "adding dvorak - qwerty ⌘ to keyboards, probably", "defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '{InputSourceKind = \"Keyboard Layout\";\"KeyboardLayout ID\" = 16301;\"KeyboardLayout Name\" = \"DVORAK - QWERTY CMD\";}'"
+  }
+end
 
 dep "dl-script" do
  met?{"~/.babushka/deps/macPreferences.sh".p.exists?}
