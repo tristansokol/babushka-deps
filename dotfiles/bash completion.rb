@@ -13,4 +13,12 @@ elsif raw_shell("echo $BASH_VERSINFO").stdout.strip! >=4.to_s
    }
   end
 end
+
+dep 'npm-completion' do
+  requires 'make bash_completion.d','npm'
+  met?{'~/.bash_completion.d/npm'.p.exists?}
+  meet{
+    log_shell "creating npm completion file","npm completion >>~/.bash_completion.d/npm"
+  }
+end
 # met? { shell?('blah blah | grep b') }
