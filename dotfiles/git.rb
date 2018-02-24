@@ -2,7 +2,8 @@ dep 'gitdotfiles' do
   requires 'git-completion',
            'git-prompt',
            'gitconfig',
-           'gitignore'
+           'gitignore',
+           'git-templates'
 end
 
 dep 'git-completion' do
@@ -48,5 +49,14 @@ dep 'gitignore' do
       shell('mv ~/.gitignore "/Users/tristansokol/.gitignore$(date +"%m-%d-%y-%r")"')
     end
     log_shell "Symbolically linking gitignore from dotfiles","ln -is ~/dotfiles/git/gitignore ~/.gitignore"
+  }
+end
+dep 'git-templates' do
+  met?{
+    log "seeing if ~./git-templates is symbolically linked"
+    !raw_shell("find ~/.git_template -type l").stdout.empty?
+  }
+  meet{
+    log_shell "Symbolically linking .git_template from dotfiles","ln -is ~/dotfiles/git/git_template ~/.git_template"
   }
 end
