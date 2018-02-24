@@ -15,7 +15,7 @@ end
 #
 
 dep 'dvorak' do
-  met?{shel "defaults read com.apple.HIToolbox AppleEnabledInputSources | grep DVORAK"}
+  met?{shell "defaults read com.apple.HIToolbox AppleEnabledInputSources | grep DVORAK"}
   meet{
     log_shell "adding dvorak - qwerty ⌘ to keyboards, probably", "defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '{InputSourceKind = \"Keyboard Layout\";\"KeyboardLayout ID\" = 16301;\"KeyboardLayout Name\" = \"DVORAK - QWERTY CMD\";}'"
   }
