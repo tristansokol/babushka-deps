@@ -31,7 +31,9 @@ dep 'atom' do
            'docblockr.atompackage',
            'file-icons.atompackage',
            'tree-view-git-status.atompackage',
-           'project-view.atompackage'
+           'project-view.atompackage',
+           'linter-php.atompackage'
+
 end
 
 meta :atompackage do
@@ -189,4 +191,7 @@ dep 'tree-view-git-status.atompackage' do
 end
 dep 'project-view.atompackage' do
   name 'project-view'
+end
+dep 'linter-php.atompackage' do
+  name 'linter-php'
 end
