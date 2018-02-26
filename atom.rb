@@ -87,8 +87,17 @@ dep 'rubocop' do
   end
 end
 
+dep 'php-cs-fixer' do
+  met? do
+    log_shell 'checking if php-cs-fixer is installed', 'brew list | grep php-cs-fixer'
+  end
+  meet do
+    log_shell 'installing php-cs-fixer, the php beautifer', 'brew install homebrew/php/php-cs-fixer'
+  end
+end
+
 dep 'atom-beautify.atompackage' do
-  requires 'rubocop'
+  requires 'rubocop','php-cs-fixer'
   name 'atom-beautify'
 end
 dep 'atom-live-server.atompackage' do

@@ -11,6 +11,7 @@ dep 'base' do
       atom
       quicklook
       mac-preferences
+      composer
     )
   )
 end
