@@ -12,6 +12,7 @@ dep 'base' do
       quicklook
       mac-preferences
       composer
+      lolcommits
     )
   )
 end
