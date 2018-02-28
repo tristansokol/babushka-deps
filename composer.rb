@@ -1,4 +1,9 @@
+dep 'php' do
+  met? { log_shell "checking if php is installed",'which php' }
+end
+
 dep 'composer' do
+  require 'php'
   met? { log_shell "checking if composer is installed",'which composer' }
   meet do
     log 'installing composer'
