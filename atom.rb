@@ -32,8 +32,8 @@ dep 'atom' do
            'file-icons.atompackage',
            'tree-view-git-status.atompackage',
            'project-view.atompackage',
-           'linter-php.atompackage'
-
+           'linter-php.atompackage',
+           'open-terminal-here.atompackage'
 end
 
 meta :atompackage do
@@ -97,7 +97,7 @@ dep 'php-cs-fixer' do
 end
 
 dep 'atom-beautify.atompackage' do
-  requires 'rubocop','php-cs-fixer'
+  requires 'rubocop', 'php-cs-fixer'
   name 'atom-beautify'
 end
 dep 'atom-live-server.atompackage' do
@@ -145,18 +145,18 @@ end
 dep 'linter-ui-default.atompackage' do
   name 'linter-ui-default'
 end
-dep "pip"do
-  met?{shell?"which pip"}
-  meet{log("you don't have pip, try reinstalling python with brew")}
+dep 'pip' do
+  met? { shell? 'which pip' }
+  meet { log("you don't have pip, try reinstalling python with brew") }
 end
-dep "beautysh" do
-  met?{shell?"which beautysh"}
-  meet{
-    log_shell "installing beautysh with pip","pip install beautysh"
-  }
+dep 'beautysh' do
+  met? { shell?'which beautysh' }
+  meet do
+    log_shell 'installing beautysh with pip', 'pip install beautysh'
+  end
 end
 dep 'linter.atompackage' do
-  requires "beautysh"
+  requires 'beautysh'
   name 'linter'
 end
 dep 'minimap-cursorline.atompackage' do
@@ -203,4 +203,7 @@ dep 'project-view.atompackage' do
 end
 dep 'linter-php.atompackage' do
   name 'linter-php'
+end
+dep 'open-terminal-here.atompackage' do
+  name 'open-terminal-here'
 end
