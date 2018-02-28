@@ -2,8 +2,7 @@ dep 'gitdotfiles' do
   requires 'git-completion',
            'git-prompt',
            'gitconfig',
-           'gitignore',
-           'git-templates'
+           'gitignore'
 end
 
 dep 'git-completion' do
@@ -51,6 +50,7 @@ dep 'gitignore' do
     log_shell "Symbolically linking gitignore from dotfiles","ln -is ~/dotfiles/git/gitignore ~/.gitignore"
   }
 end
+# this isn't needed since I updated the config
 dep 'git-templates' do
   met?{
     log "seeing if ~./git-templates is symbolically linked"
