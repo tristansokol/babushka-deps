@@ -15,6 +15,50 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Edit: ALLOW automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
 
+###############################################################################
+# Power Management                                                            #
+###############################################################################
+# confirm capabilites with pmset -g cap
+
+# set display sleep timer to 5 minutes on AC and 2 on battery
+sudo pmset -c displaysleep 5
+sudo pmset -b displaysleep 2
+
+#enable powernap
+sudo pmset -a powernap 1
+
+#put system to sleep
+sudo pmset -c sleep 10
+sudo pmset -b sleep 3
+
+#Disable magic packet wakes
+sudo pmset -a womp 0
+
+#Disable waking when the power changes
+sudo pmset -a acwake 0
+
+#Enable waking when the lid opens
+sudo pmset -a lidwake 1
+
+#Disable keeping your eyes open while you sleep
+sudo pmset -a halfdim 0
+
+# Go int standby mode after 20 minutes
+sudo pmset -a standby 1
+sudo pmset -a standbydelay 1200
+
+# Sleep even if someone remote is logged in
+sudo pmset -a ttyskeepawake 1
+
+# Keep memory powered during sleep
+sudo pmset -a hibernatemode 3
+
+# Hibernate after an hour
+sudo pmset -a autopoweroff 1
+sudo pmset -a autopoweroffdelay 3600
+
+#Dim the display when switching to battery
+sudo pmset -b lessbright 1
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -155,279 +199,279 @@ sudo chflags nohidden /Volumes
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-	General -bool true \
-	OpenWith -bool true \
-	Privileges -bool true
+General -bool true \
+OpenWith -bool true \
+Privileges -bool true
 
 
-  ###############################################################################
-  # Dock, Dashboard, and hot corners                                            #
-  ###############################################################################
+###############################################################################
+# Dock, Dashboard, and hot corners                                            #
+###############################################################################
 
-  # Enable highlight hover effect for the grid view of a stack (Dock)
-  defaults write com.apple.dock mouse-over-hilite-stack -bool true
+# Enable highlight hover effect for the grid view of a stack (Dock)
+defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-  # Set the icon size of Dock items to 72 pixels
-  defaults write com.apple.dock tilesize -int 72
+# Set the icon size of Dock items to 72 pixels
+defaults write com.apple.dock tilesize -int 72
 
-  # Change minimize/maximize window effect
-  defaults write com.apple.dock mineffect -string "scale"
+# Change minimize/maximize window effect
+defaults write com.apple.dock mineffect -string "scale"
 
-  # Minimize windows into their application’s icon
-  defaults write com.apple.dock minimize-to-application -bool false
+# Minimize windows into their application’s icon
+defaults write com.apple.dock minimize-to-application -bool false
 
-  # Enable spring loading for all Dock items
-  defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+# Enable spring loading for all Dock items
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
-  # Show indicator lights for open applications in the Dock
-  defaults write com.apple.dock show-process-indicators -bool true
+# Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
 
-  # Show only open applications in the Dock
-  #defaults write com.apple.dock static-only -bool true
+# Show only open applications in the Dock
+#defaults write com.apple.dock static-only -bool true
 
-  # Don’t animate opening applications from the Dock
-  defaults write com.apple.dock launchanim -bool false
+# Don’t animate opening applications from the Dock
+defaults write com.apple.dock launchanim -bool false
 
-  # Speed up Mission Control animations
-  defaults write com.apple.dock expose-animation-duration -float 0.1
+# Speed up Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
 
-  # Don’t group windows by application in Mission Control
-  # (i.e. use the old Exposé behavior instead)
-  defaults write com.apple.dock expose-group-by-app -bool false
+# Don’t group windows by application in Mission Control
+# (i.e. use the old Exposé behavior instead)
+defaults write com.apple.dock expose-group-by-app -bool false
 
-  # Disable Dashboard
-  defaults write com.apple.dashboard mcx-disabled -bool true
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
 
-  # Don’t show Dashboard as a Space
-  defaults write com.apple.dock dashboard-in-overlay -bool true
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
 
-  # Don’t automatically rearrange Spaces based on most recent use
-  defaults write com.apple.dock mru-spaces -bool false
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
 
-  # # Remove the auto-hiding Dock delay
-  # defaults write com.apple.dock autohide-delay -float 0
-  # # Remove the animation when hiding/showing the Dock
-  # defaults write com.apple.dock autohide-time-modifier -float 0
+# # Remove the auto-hiding Dock delay
+# defaults write com.apple.dock autohide-delay -float 0
+# # Remove the animation when hiding/showing the Dock
+# defaults write com.apple.dock autohide-time-modifier -float 0
 
-  # Automatically hide and show the Dock
-  defaults write com.apple.dock autohide -bool true
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
 
-  # Don't make Dock icons of hidden applications translucent
-  defaults write com.apple.dock showhidden -bool false
-
-
-  # Disable the Launchpad gesture (pinch with thumb and three fingers)
-  #defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
-
-  # Reset Launchpad, but keep the desktop wallpaper intact
-  #find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
-
-  # Add iOS Simulator to Launchpad
-  #sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app" "/Applications/iOS Simulator.app"
-
-  # Hot corners
-  # Possible values:
-  #  0: no-op
-  #  2: Mission Control
-  #  3: Show application windows
-  #  4: Desktop
-  #  5: Start screen saver
-  #  6: Disable screen saver
-  #  7: Dashboard
-  # 10: Put display to sleep
-  # 11: Launchpad
-  # 12: Notification Center
+# Don't make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool false
 
 
-  # Top left screen corner → Put to sleep
-  defaults write com.apple.dock wvous-tl-corner -int 10
-  defaults write com.apple.dock wvous-tl-modifier -int 0
-  # Top right screen corner → no-op
-  defaults write com.apple.dock wvous-tr-corner -int 1
-  defaults write com.apple.dock wvous-tr-modifier -int 1048576
-  # Bottom left screen corner → no-op
-  defaults write com.apple.dock wvous-bl-corner -int 1
-  defaults write com.apple.dock wvous-bl-modifier -int 1048576
-  # Bottom right screen corner → no-op
-  defaults write com.apple.dock wvous-br-corner -int 1
-  defaults write com.apple.dock wvous-br-modifier -int 1048576
-  ###############################################################################
-  # Spotlight                                                                   #
-  ###############################################################################
+# Disable the Launchpad gesture (pinch with thumb and three fingers)
+#defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
-  # Hide Spotlight tray-icon (and subsequent helper)
-  #sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
-  # Disable Spotlight indexing for any volume that gets mounted and has not yet
-  # been indexed before.
-  # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-  sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-  # Change indexing order and disable some search results
-  # Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
-  # 	MENU_DEFINITION
-  # 	MENU_CONVERSION
-  # 	MENU_EXPRESSION
-  # 	MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
-  # 	MENU_WEBSEARCH             (send search queries to Apple)
-  # 	MENU_OTHER
-  defaults write com.apple.spotlight orderedItems -array \
-  	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
-  	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-  	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
-  	'{"enabled" = 1;"name" = "PDF";}' \
-  	'{"enabled" = 1;"name" = "FONTS";}' \
-  	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
-  	'{"enabled" = 0;"name" = "MESSAGES";}' \
-  	'{"enabled" = 0;"name" = "CONTACT";}' \
-  	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
-  	'{"enabled" = 0;"name" = "IMAGES";}' \
-  	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
-  	'{"enabled" = 0;"name" = "MUSIC";}' \
-  	'{"enabled" = 0;"name" = "MOVIES";}' \
-  	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-  	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-  	'{"enabled" = 0;"name" = "SOURCE";}' \
-  	'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-  	'{"enabled" = 0;"name" = "MENU_OTHER";}' \
-  	'{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-  	'{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
-  	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
-  	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
-  # Load new settings before rebuilding the index
-  killall mds > /dev/null 2>&1
-  # Make sure indexing is enabled for the main volume
-  sudo mdutil -i on / > /dev/null
-  # Rebuild the index from scratch
-  sudo mdutil -E / > /dev/null
+# Reset Launchpad, but keep the desktop wallpaper intact
+#find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
-  ###############################################################################
-  # Terminal & iTerm 2                                                          #
-  ###############################################################################
+# Add iOS Simulator to Launchpad
+#sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app" "/Applications/iOS Simulator.app"
 
-  # Only use UTF-8 in Terminal.app
-  defaults write com.apple.terminal StringEncodings -array 4
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
 
-  # Enable “focus follows mouse” for Terminal.app and all X11 apps
-  # i.e. hover over a window and start typing in it without clicking first
-  #defaults write com.apple.terminal FocusFollowsMouse -bool true
-  #defaults write org.x.X11 wm_ffm -bool true
 
-  # Enable Secure Keyboard Entry in Terminal.app
-  # See: https://security.stackexchange.com/a/47786/8918
-  defaults write com.apple.terminal SecureKeyboardEntry -bool true
+# Top left screen corner → Put to sleep
+defaults write com.apple.dock wvous-tl-corner -int 10
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top right screen corner → no-op
+defaults write com.apple.dock wvous-tr-corner -int 1
+defaults write com.apple.dock wvous-tr-modifier -int 1048576
+# Bottom left screen corner → no-op
+defaults write com.apple.dock wvous-bl-corner -int 1
+defaults write com.apple.dock wvous-bl-modifier -int 1048576
+# Bottom right screen corner → no-op
+defaults write com.apple.dock wvous-br-corner -int 1
+defaults write com.apple.dock wvous-br-modifier -int 1048576
+###############################################################################
+# Spotlight                                                                   #
+###############################################################################
 
-  ###############################################################################
-  # Activity Monitor                                                            #
-  ###############################################################################
+# Hide Spotlight tray-icon (and subsequent helper)
+#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# Disable Spotlight indexing for any volume that gets mounted and has not yet
+# been indexed before.
+# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# Change indexing order and disable some search results
+# Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
+# 	MENU_DEFINITION
+# 	MENU_CONVERSION
+# 	MENU_EXPRESSION
+# 	MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
+# 	MENU_WEBSEARCH             (send search queries to Apple)
+# 	MENU_OTHER
+defaults write com.apple.spotlight orderedItems -array \
+'{"enabled" = 1;"name" = "APPLICATIONS";}' \
+'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+'{"enabled" = 1;"name" = "DIRECTORIES";}' \
+'{"enabled" = 1;"name" = "PDF";}' \
+'{"enabled" = 1;"name" = "FONTS";}' \
+'{"enabled" = 0;"name" = "DOCUMENTS";}' \
+'{"enabled" = 0;"name" = "MESSAGES";}' \
+'{"enabled" = 0;"name" = "CONTACT";}' \
+'{"enabled" = 0;"name" = "EVENT_TODO";}' \
+'{"enabled" = 0;"name" = "IMAGES";}' \
+'{"enabled" = 0;"name" = "BOOKMARKS";}' \
+'{"enabled" = 0;"name" = "MUSIC";}' \
+'{"enabled" = 0;"name" = "MOVIES";}' \
+'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+'{"enabled" = 0;"name" = "SOURCE";}' \
+'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+'{"enabled" = 0;"name" = "MENU_OTHER";}' \
+'{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+'{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+# Load new settings before rebuilding the index
+killall mds > /dev/null 2>&1
+# Make sure indexing is enabled for the main volume
+sudo mdutil -i on / > /dev/null
+# Rebuild the index from scratch
+sudo mdutil -E / > /dev/null
 
-  # Show the main window when launching Activity Monitor
-  defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+###############################################################################
+# Terminal & iTerm 2                                                          #
+###############################################################################
 
-  # Visualize CPU usage in the Activity Monitor Dock icon
-  defaults write com.apple.ActivityMonitor IconType -int 6
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
 
-  # Show all processes in Activity Monitor
-  defaults write com.apple.ActivityMonitor ShowCategory -int 0
+# Enable “focus follows mouse” for Terminal.app and all X11 apps
+# i.e. hover over a window and start typing in it without clicking first
+#defaults write com.apple.terminal FocusFollowsMouse -bool true
+#defaults write org.x.X11 wm_ffm -bool true
 
-  # Sets columns for all tabs
-  defaults read com.apple.ActivityMonitor "UserColumnsPerTab v5.0" -dict \
-      '0' '( Command, CPUUsage, CPUTime, Threads, PID, UID, Ports )' \
-      '1' '( Command, ResidentSize, Threads, Ports, PID, UID,  )' \
-      '2' '( Command, PowerScore, 12HRPower, AppSleep, UID, powerAssertion )' \
-      '3' '( Command, bytesWritten, bytesRead, Architecture, PID, UID, CPUUsage )' \
-      '4' '( Command, txBytes, rxBytes, PID, UID, txPackets, rxPackets, CPUUsage )'
+# Enable Secure Keyboard Entry in Terminal.app
+# See: https://security.stackexchange.com/a/47786/8918
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
-  # Set sort column
-  defaults write com.apple.ActivityMonitor UserColumnSortPerTab -dict \
-      '0' '{ direction = 0; sort = CPUUsage; }' \
-      '1' '{ direction = 0; sort = ResidentSize; }' \
-      '2' '{ direction = 0; sort = 12HRPower; }' \
-      '3' '{ direction = 0; sort = bytesWritten; }' \
-      '4' '{ direction = 0; sort = rxBytes; }'
-  defaults write com.apple.ActivityMonitor SortDirection -int 0
+###############################################################################
+# Activity Monitor                                                            #
+###############################################################################
 
-  # Show Data in the Disk graph (instead of IO)
-  defaults write com.apple.ActivityMonitor DiskGraphType -int 1
+# Show the main window when launching Activity Monitor
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
-  # Show Data in the Network graph (instead of packets)
-  defaults write com.apple.ActivityMonitor NetworkGraphType -int 1
+# Visualize CPU usage in the Activity Monitor Dock icon
+defaults write com.apple.ActivityMonitor IconType -int 6
 
-  ###############################################################################
-  # Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
-  ###############################################################################
+# Show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
-  # Enable the debug menu in Address Book
-  defaults write com.apple.addressbook ABShowDebugMenu -bool true
+# Sets columns for all tabs
+defaults read com.apple.ActivityMonitor "UserColumnsPerTab v5.0" -dict \
+'0' '( Command, CPUUsage, CPUTime, Threads, PID, UID, Ports )' \
+'1' '( Command, ResidentSize, Threads, Ports, PID, UID,  )' \
+'2' '( Command, PowerScore, 12HRPower, AppSleep, UID, powerAssertion )' \
+'3' '( Command, bytesWritten, bytesRead, Architecture, PID, UID, CPUUsage )' \
+'4' '( Command, txBytes, rxBytes, PID, UID, txPackets, rxPackets, CPUUsage )'
 
-  # Enable Dashboard dev mode (allows keeping widgets on the desktop)
-  defaults write com.apple.dashboard devmode -bool true
+# Set sort column
+defaults write com.apple.ActivityMonitor UserColumnSortPerTab -dict \
+'0' '{ direction = 0; sort = CPUUsage; }' \
+'1' '{ direction = 0; sort = ResidentSize; }' \
+'2' '{ direction = 0; sort = 12HRPower; }' \
+'3' '{ direction = 0; sort = bytesWritten; }' \
+'4' '{ direction = 0; sort = rxBytes; }'
+defaults write com.apple.ActivityMonitor SortDirection -int 0
 
-  # Enable the debug menu in iCal (pre-10.8)
-  defaults write com.apple.iCal IncludeDebugMenu -bool true
+# Show Data in the Disk graph (instead of IO)
+defaults write com.apple.ActivityMonitor DiskGraphType -int 1
 
-  # Use plain text mode for new TextEdit documents
-  defaults write com.apple.TextEdit RichText -int 0
-  # Open and save files as UTF-8 in TextEdit
-  defaults write com.apple.TextEdit PlainTextEncoding -int 4
-  defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+# Show Data in the Network graph (instead of packets)
+defaults write com.apple.ActivityMonitor NetworkGraphType -int 1
 
-  # Enable the debug menu in Disk Utility
-  defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
-  defaults write com.apple.DiskUtility advanced-image-options -bool true
+###############################################################################
+# Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
+###############################################################################
 
-  # Auto-play videos when opened with QuickTime Player
-  defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
+# Enable the debug menu in Address Book
+defaults write com.apple.addressbook ABShowDebugMenu -bool true
 
-  ###############################################################################
-  # Mac App Store                                                               #
-  ###############################################################################
+# Enable Dashboard dev mode (allows keeping widgets on the desktop)
+defaults write com.apple.dashboard devmode -bool true
 
-  # Enable the WebKit Developer Tools in the Mac App Store
-  defaults write com.apple.appstore WebKitDeveloperExtras -bool true
+# Enable the debug menu in iCal (pre-10.8)
+defaults write com.apple.iCal IncludeDebugMenu -bool true
 
-  # Enable Debug Menu in the Mac App Store
-  defaults write com.apple.appstore ShowDebugMenu -bool true
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+# Open and save files as UTF-8 in TextEdit
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
-  ###############################################################################
-  # Photos                                                                      #
-  ###############################################################################
+# Enable the debug menu in Disk Utility
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
 
-  # Prevent Photos from opening automatically when devices are plugged in
-  defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+# Auto-play videos when opened with QuickTime Player
+defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
 
-  ###############################################################################
-  # Google Chrome & Google Chrome Canary                                        #
-  ###############################################################################
+###############################################################################
+# Mac App Store                                                               #
+###############################################################################
 
-  # Allow installing user scripts via GitHub Gist or Userscripts.org
-  defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
+# Enable the WebKit Developer Tools in the Mac App Store
+defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
-  # Use the system-native print preview dialog
-  #defaults write com.google.Chrome DisablePrintPreview -bool true
-  #defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+# Enable Debug Menu in the Mac App Store
+defaults write com.apple.appstore ShowDebugMenu -bool true
 
-  # Expand the print dialog by default
-  defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+###############################################################################
+# Photos                                                                      #
+###############################################################################
 
-  ###############################################################################
-  # Transmission.app                                                            #
-  ###############################################################################
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-  # Don’t prompt for confirmation before downloading
-  # defaults write org.m0k.transmission DownloadAsk -bool false
-  # defaults write org.m0k.transmission MagnetOpenAsk -bool false
+###############################################################################
+# Google Chrome & Google Chrome Canary                                        #
+###############################################################################
 
-  # Trash original torrent files
-  # defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+# Allow installing user scripts via GitHub Gist or Userscripts.org
+defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
 
-  # Hide the donate message
-  # defaults write org.m0k.transmission WarningDonate -bool false
-  # Hide the legal disclaimer
-  # defaults write org.m0k.transmission WarningLegal -bool false
+# Use the system-native print preview dialog
+#defaults write com.google.Chrome DisablePrintPreview -bool true
+#defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 
-  # IP block list.
-  # Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
-  # defaults write org.m0k.transmission BlocklistNew -bool true
-  # defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-  # defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
-  #
-  echo "Done. Note that some of these changes require a logout/restart to take effect."
+# Expand the print dialog by default
+defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+
+###############################################################################
+# Transmission.app                                                            #
+###############################################################################
+
+# Don’t prompt for confirmation before downloading
+# defaults write org.m0k.transmission DownloadAsk -bool false
+# defaults write org.m0k.transmission MagnetOpenAsk -bool false
+
+# Trash original torrent files
+# defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+
+# Hide the donate message
+# defaults write org.m0k.transmission WarningDonate -bool false
+# Hide the legal disclaimer
+# defaults write org.m0k.transmission WarningLegal -bool false
+
+# IP block list.
+# Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
+# defaults write org.m0k.transmission BlocklistNew -bool true
+# defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+# defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
+#
+echo "Done. Note that some of these changes require a logout/restart to take effect."
