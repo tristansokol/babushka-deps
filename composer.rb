@@ -3,7 +3,7 @@ dep 'php' do
 end
 
 dep 'composer' do
-  require 'php'
+  requires 'php'
   met? { log_shell "checking if composer is installed",'which composer' }
   meet do
     log 'installing composer'
