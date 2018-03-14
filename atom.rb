@@ -33,7 +33,8 @@ dep 'atom' do
            'tree-view-git-status.atompackage',
            'project-view.atompackage',
            'linter-php.atompackage',
-           'open-terminal-here.atompackage'
+           'open-terminal-here.atompackage',
+           'language-vue.atompackage'
 end
 
 meta :atompackage do
@@ -206,4 +207,7 @@ dep 'linter-php.atompackage' do
 end
 dep 'open-terminal-here.atompackage' do
   name 'open-terminal-here'
+end
+dep 'language-vue.atompackage' do
+  name 'language-vue'
 end
