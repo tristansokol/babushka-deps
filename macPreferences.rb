@@ -98,7 +98,7 @@ dep 'exuberant ctags' do
 end
 
 dep 'duti' do
-  met? { shell?('brew list | grep duti') }
+  met? { shell?('brew list | grep duti && duti ~/dotfiles/dutifile.duti') }
   meet do
     log_shell 'installing duti', 'brew install duti'
     log_shell 'duti-ing the duti file in ~/dotfiles', 'duti ~/dotfiles/dutifile.duti'
