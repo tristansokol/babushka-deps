@@ -13,6 +13,7 @@ dep 'base' do
       mac-preferences
       composer
       lolcommits
+      jq
     )
   )
 end
