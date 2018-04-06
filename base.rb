@@ -14,6 +14,8 @@ dep 'base' do
       composer
       lolcommits
       jq
+      lolcat
+      fortune
     )
   )
 end
