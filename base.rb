@@ -16,6 +16,7 @@ dep 'base' do
       jq
       lolcat
       fortune
+      yarn
     )
   )
 end

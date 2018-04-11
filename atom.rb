@@ -34,7 +34,8 @@ dep 'atom' do
            'project-view.atompackage',
            'linter-php.atompackage',
            'open-terminal-here.atompackage',
-           'language-vue.atompackage'
+           'language-vue.atompackage',
+           'language-docker.atompackage'
 end
 
 meta :atompackage do
@@ -210,4 +211,7 @@ dep 'open-terminal-here.atompackage' do
 end
 dep 'language-vue.atompackage' do
   name 'language-vue'
+end
+dep 'language-docker.atompackage' do
+  name 'language-docker'
 end
