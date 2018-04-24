@@ -16,6 +16,7 @@ dep 'base' do
       lolcat
       fortune
       yarn
+      ripgrep
     )
   )
 end

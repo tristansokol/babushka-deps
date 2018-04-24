@@ -21,15 +21,15 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
 # confirm capabilites with pmset -g cap
 
 # set display sleep timer to 5 minutes on AC and 2 on battery
-sudo pmset -c displaysleep 5
-sudo pmset -b displaysleep 2
+sudo pmset -c displaysleep 20
+sudo pmset -b displaysleep 10
 
 #enable powernap
 sudo pmset -a powernap 1
 
 #put system to sleep
-sudo pmset -c sleep 10
-sudo pmset -b sleep 3
+sudo pmset -c sleep 30
+sudo pmset -b sleep 15
 
 #Disable magic packet wakes
 sudo pmset -a womp 0
