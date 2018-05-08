@@ -3,7 +3,8 @@ dep 'apps' do
         'Spectacle.app',
         'LastPass.app',
         'Hex Fiend.app',
-        'Disk Inventory X.app'
+        'Disk Inventory X.app',
+        'MacVim.app'
 end
 
 dep 'Postman.app' do
@@ -12,6 +13,10 @@ end
 
 dep 'Spectacle.app' do
   source 'https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip'
+end
+
+dep 'MacVim.app' do
+  source `https://github.com/macvim-dev/macvim/releases/download/snapshot-146/MacVim.dmg`
 end
 
 dep 'LastPass.app' do
@@ -24,4 +29,8 @@ end
 
 dep 'Disk Inventory X.app' do
   source 'http://www.derlien.com/download.php?file=DiskInventoryX'
+end
+
+dep 'iTerm.app' do
+  source "https://iterm2.com/downloads/stable/latest"
 end
