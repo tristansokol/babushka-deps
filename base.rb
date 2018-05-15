@@ -17,6 +17,7 @@ dep 'base' do
       fortune
       yarn
       ripgrep
+      vscode
     )
   )
 end
