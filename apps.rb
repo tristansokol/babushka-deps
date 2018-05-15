@@ -4,7 +4,8 @@ dep 'apps' do
         'LastPass.app',
         'Hex Fiend.app',
         'Disk Inventory X.app',
-        'MacVim.app'
+        'iTerm.app',
+        'Krita.app'
 end
 
 dep 'Postman.app' do
@@ -15,9 +16,6 @@ dep 'Spectacle.app' do
   source 'https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip'
 end
 
-dep 'MacVim.app' do
-  source `https://github.com/macvim-dev/macvim/releases/download/snapshot-146/MacVim.dmg`
-end
 
 dep 'LastPass.app' do
   source 'https://itunes.apple.com/us/app/lastpass/id926036361?ls=1&mt=12'
@@ -29,6 +27,10 @@ end
 
 dep 'Disk Inventory X.app' do
   source 'http://www.derlien.com/download.php?file=DiskInventoryX'
+end
+
+dep 'Krita.app'do
+  source 'https://download.kde.org/stable/krita/4.0.3/krita-4.0.3.1.dmg'
 end
 
 dep 'iTerm.app' do
