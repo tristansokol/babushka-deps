@@ -1,5 +1,6 @@
 dep 'vscode' do
-  requires 'Visual Studio Code.app', 'vscode-settings-symlinked'
+  requires 'Visual Studio Code.app', 'vscode-settings-symlinked',
+  'vscode-keybindings-symlinked'
 end
 
 dep 'Visual Studio Code.app' do
@@ -15,5 +16,16 @@ dep 'vscode-settings-symlinked' do
     log_shell('copying old settings', 'cp -va $HOME/Library/Application\ Support/Code/User/settings.json "$HOME/Library/Application Support/Code/User/settings-$(date +"%Y%m%d-%H%M%S").json"')
         log_shell 'Deleting old settings', 'rm -rf $HOME/Library/Application\ Support/Code/User/settings.json'
     log_shell 'symlinking settings from dotfiles', 'ln -sf $HOME/dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json'
+  end
+end
+dep 'vscode-keybindings-symlinked' do
+  met? do
+    log('seeing if vscode keybindings is symbolically linked')
+    !raw_shell('find ~/Library/Application\ Support/Code/User/keybindings.json -type l').stdout.empty?
+  end
+  meet do
+    log_shell('copying old keybindings', 'cp -va $HOME/Library/Application\ Support/Code/User/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings-$(date +"%Y%m%d-%H%M%S").json"')
+        log_shell 'Deleting old keybindings', 'rm -rf $HOME/Library/Application\ Support/Code/User/keybindings.json'
+    log_shell 'symlinking keybindings from dotfiles', 'ln -sf $HOME/dotfiles/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json'
   end
 end
