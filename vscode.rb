@@ -4,7 +4,8 @@ dep 'vscode' do
            'vscode-keybindings-symlinked',
            'Duplicate.vscodeextension',
            'Ruby.vscodeextension',
-           'Markdownlint.vscodeextension'
+           'Markdownlint.vscodeextension',
+           'Spell.vscodeextension'
 end
 
 dep 'Visual Studio Code.app' do
@@ -53,6 +54,9 @@ end
 
 dep 'Ruby.vscodeextension' do
   name 'rebornix.ruby'
+end
+dep 'Spell.vscodeextension' do
+  name 'streetsidesoftware.code-spell-checker'
 end
 
 
