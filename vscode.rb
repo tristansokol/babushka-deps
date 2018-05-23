@@ -5,7 +5,8 @@ dep 'vscode' do
            'Duplicate.vscodeextension',
            'Ruby.vscodeextension',
            'Markdownlint.vscodeextension',
-           'Spell.vscodeextension'
+           'Spell.vscodeextension',
+           'vetur.vscodeextension'
 end
 
 dep 'Visual Studio Code.app' do
@@ -57,6 +58,10 @@ dep 'Ruby.vscodeextension' do
 end
 dep 'Spell.vscodeextension' do
   name 'streetsidesoftware.code-spell-checker'
+end
+
+dep 'vetur.vscodeextension' do
+  name 'octref.vetur'
 end
 
 
