@@ -6,6 +6,8 @@ dep 'vscode' do
            'Ruby.vscodeextension',
            'Markdownlint.vscodeextension',
            'Spell.vscodeextension',
+           'importCost.vscodeextension',
+           'python.vscodeextension',
            'vetur.vscodeextension'
 end
 
@@ -62,6 +64,14 @@ end
 
 dep 'vetur.vscodeextension' do
   name 'octref.vetur'
+end
+
+dep 'importCost.vscodeextension' do
+  name 'wix.vscode-import-cost'
+end
+
+dep 'python.vscodeextension' do
+  name 'ms-python.python'
 end
 
 
