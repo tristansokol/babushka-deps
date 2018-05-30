@@ -8,7 +8,8 @@ dep 'vscode' do
            'Spell.vscodeextension',
            'importCost.vscodeextension',
            'python.vscodeextension',
-           'vetur.vscodeextension'
+           'vetur.vscodeextension',
+           'todo.vscodeextension'
 end
 
 dep 'Visual Studio Code.app' do
@@ -72,6 +73,10 @@ end
 
 dep 'python.vscodeextension' do
   name 'ms-python.python'
+end
+
+dep 'todo.vscodeextension' do
+  name 'wayou.vscode-todo'
 end
 
 
