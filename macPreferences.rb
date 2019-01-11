@@ -1,6 +1,6 @@
 dep 'mac-preferences' do
   requires 'dev-folder',
-           'hotcorners',
+#            'hotcorners',
            'duti',
            'menuExtras',
            'savePanel',
