@@ -1,5 +1,5 @@
 dep 'FiraCode' do
-  requires 'FiraCode-font', 'atom preferences', 'terminal preferences'
+  requires 'FiraCode-font', 'terminal preferences'
 end
 
 # I do not understand how this works, need to test on new machine?
@@ -11,9 +11,9 @@ dep 'FiraCode-font' do
    }
 end
 
-dep 'atom preferences' do
-  met? File.read(File.expand_path('~/.atom/config.cson')).include? 'fontFamily: "FiraCode-Light"'
-end
+#dep 'atom preferences' do
+#  met? File.read(File.expand_path('~/.atom/config.cson')).include? 'fontFamily: "FiraCode-Light"'
+#end
 
 # doesn't seem to permanently change it? Also met? doesn't make any sense.
 dep 'terminal preferences' do
