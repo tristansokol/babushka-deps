@@ -5,7 +5,7 @@ dep 'apps' do
         'Hex Fiend.app',
         'Disk Inventory X.app',
         'iTerm.app',
-        'Krita.app'
+        'Visual Studio Code.app'
 end
 
 dep 'Postman.app' do
@@ -18,7 +18,7 @@ end
 
 
 dep 'LastPass.app' do
-  source 'https://itunes.apple.com/us/app/lastpass/id926036361?ls=1&mt=12'
+  source 'https://download.cloud.lastpass.com/mac/lpmacosx.zip'
 end
 
 dep 'Hex Fiend.app'do
@@ -29,8 +29,8 @@ dep 'Disk Inventory X.app' do
   source 'http://www.derlien.com/download.php?file=DiskInventoryX'
 end
 
-dep 'Krita.app'do
-  source 'https://download.kde.org/stable/krita/4.0.3/krita-4.0.3.1.dmg'
+dep 'Visual Studio Code.app' do
+  source 'https://go.microsoft.com/fwlink/?LinkID=620882'
 end
 
 dep 'iTerm.app' do
