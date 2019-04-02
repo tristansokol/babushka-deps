@@ -7,7 +7,7 @@ dep 'base' do
       ssh
       apps
       FiraCode
-      atom
+      # atom
       quicklook
       mac-preferences
       composer
@@ -18,6 +18,7 @@ dep 'base' do
       yarn
       ripgrep
       vscode
+      ruby
     )
   )
 end

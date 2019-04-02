@@ -21,4 +21,11 @@ dep 'npm-completion' do
     log_shell "creating npm completion file","npm completion >>~/.bash_completion.d/npm"
   }
 end
+
+dep 'tmuxinator-completion' do
+  met?{'~/.bash_completion.d/tmuxinator'.p.exists?}
+  meet{
+    log_shell "Downloading tmuxintor completion file","curl -o ~/.bash_completion.d/tmuxinator  https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash"
+  }
+ 
 # met? { shell?('blah blah | grep b') }
